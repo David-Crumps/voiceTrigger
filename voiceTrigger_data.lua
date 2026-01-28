@@ -19,14 +19,30 @@ return {
 						function_name = "trigger_vacuum_capsule",
 					},
 					{
-						setting_id = "go_die",
+						setting_id = "coughing_fit",
 						type = "keybind",
 						default_value = {},
 						keybind_trigger = "pressed",
 						keybind_type = "function_call",
-						function_name = "trigger_go_die"
-					}
+						function_name = "trigger_coughing_fit"
+					},
+					{
+						setting_id = "dog_hater",
+						type = "keybind",
+						default_value = {},
+						keybind_trigger = "pressed",
+						keybind_type = "function_call",
+						function_name = "trigger_dog_hating"
 
+					},
+					{
+						setting_id = "im_falling",
+						type = "keybind",
+						default_value = {},
+						keybind_trigger = "pressed",
+						keybind_type = "function_call",
+						function_name = "trigger_im_falling",
+					},
 				},
 			},
 		},

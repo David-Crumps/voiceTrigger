@@ -15,6 +15,15 @@ local allowedHiveScumVoices = {
     broker_male_b = true,
 }
 
+local psykerVoices = {
+    psyker_male_a = true,
+    psyker_male_b = true,
+    psyker_male_c = true,
+    psyker_female_a = true,
+    psyker_female_b = true,
+    psyker_female_c = true,
+}
+
 local init_keybind_functions = function()
 	local fun = function()
 		return
@@ -49,27 +58,10 @@ local get_player_unit = function()
     return player_unit
 end
 
-mod.trigger_im_falling = function()
-    if not comms_allowed() then
-        return
-    end
-    local parent = HudElementSmartTagging_instance._parent
-    local player_unit = parent:player_unit()
-
+local falling_scream = function()
+    local player_unit = get_player_unit()
     if player_unit then
         Vo.player_catapulted_event(player_unit)
-    end
-end
-
-mod.trigger_coughing_fit = function()
-    if not comms_allowed() then
-        return
-    end
-    local parent = HudElementSmartTagging_instance._parent
-    local player_unit = parent:player_unit()
-
-    if player_unit then
-        Vo.coughing_event(player_unit)
     end
 end
 
@@ -83,6 +75,16 @@ local hive_scum_dog_hating = function()
     end
 end
 
+local psyker_screaming = function()
+    local voice = get_selected_voice()
+    if psykerVoices[voice] then
+        local player_unit = get_player_unit()
+        if player_unit then
+            Vo.play_combat_ability_event(player_unit, "ability_biomancer_high")
+        end
+    end
+end
+
 local setup_keybinds = function()
     for key, setting in pairs(voice_settings) do
         if key == "dog_hating" then
@@ -92,6 +94,20 @@ local setup_keybinds = function()
                 end
                 hive_scum_dog_hating()
             end
+        elseif key == "im_falling" then
+            mod["trigger_" .. key] = function()
+                if not comms_allowed() then
+                    return
+                end
+                falling_scream()
+            end
+        elseif key == "psyker_scream" then
+            mod["trigger_" .. key] = function()
+                if not comms_allowed() then
+                    return
+                end
+                psyker_screaming()
+            end
         else
             mod["trigger_" .. key] = function()
                 if not comms_allowed() then
@@ -99,10 +115,8 @@ local setup_keybinds = function()
                 end
                 local voice_tag_concept = setting.voice_tag_concept
                 local voice_tag_id = setting.voice_tag_id
-
                 if voice_tag_concept and voice_tag_id then
                     local player_unit = get_player_unit()
-                    
                     if player_unit then
                         Vo.on_demand_vo_event(
                             player_unit,

@@ -30,6 +30,9 @@ return {
 	},
 	psyker_scream = {
 		en = "Psychic Scream (Psyker Only)"
+	},
+	keybinds = {
+		en = "Keybinds"
 	}
 }
  

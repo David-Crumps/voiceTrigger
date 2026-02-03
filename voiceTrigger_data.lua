@@ -1,7 +1,7 @@
 local mod = get_mod("voiceTrigger")
 
 return {
-	name = "voiceTrigger",
+	name = mod:localize("mod_name"),
 	description = mod:localize("mod_description"),
 	is_togglable = true,
 	options = {
@@ -17,14 +17,6 @@ return {
 						keybind_trigger = "pressed",
 						keybind_type = "function_call",
 						function_name = "trigger_vacuum_capsule",
-					},
-					{
-						setting_id = "coughing_fit",
-						type = "keybind",
-						default_value = {},
-						keybind_trigger = "pressed",
-						keybind_type = "function_call",
-						function_name = "trigger_coughing_fit"
 					},
 					{
 						setting_id = "dog_hater",
@@ -58,6 +50,30 @@ return {
 						keybind_trigger = "pressed",
 						keybind_type = "function_call",
 						function_name = "trigger_no", 
+					},
+					{
+						setting_id = "thank_you",
+						type = "keybind",
+						default_value = {},
+						keybind_trigger = "pressed",
+						keybind_type = "function_call",
+						function_name = "trigger_thank_you", 
+					},
+					{
+						setting_id = "battery",
+						type = "keybind",
+						default_value = {},
+						keybind_trigger = "pressed",
+						keybind_type = "function_call",
+						function_name = "trigger_battery", 
+					},
+					{
+						setting_id = "psyker_scream",
+						type = "keybind",
+						default_value = {},
+						keybind_trigger = "pressed",
+						keybind_type = "function_call",
+						function_name = "trigger_psyker_scream", 
 					}
 				},
 			},

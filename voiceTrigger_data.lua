@@ -43,6 +43,22 @@ return {
 						keybind_type = "function_call",
 						function_name = "trigger_im_falling",
 					},
+					{
+						setting_id = "cryonic_rod",
+						type = "keybind",
+						default_value = {},
+						keybind_trigger = "pressed",
+						keybind_type = "function_call",
+						function_name = "trigger_cryonic_rod", 
+					},
+					{
+						setting_id = "no",
+						type = "keybind",
+						default_value = {},
+						keybind_trigger = "pressed",
+						keybind_type = "function_call",
+						function_name = "trigger_no", 
+					}
 				},
 			},
 		},

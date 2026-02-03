@@ -1,6 +1,6 @@
 local VOQueryConstants = require("scripts/settings/dialogue/vo_query_constants")
 
-local VOICE_SETTING = table.enum("cryonic_rod", "vacuum_capsule", "dog_hating", "no")
+local VOICE_SETTING = table.enum("cryonic_rod", "vacuum_capsule", "dog_hating", "no", "thank_you", "battery", "im_falling", "psyker_scream")
 
 local voice_settings = {
     [VOICE_SETTING.cryonic_rod] = {
@@ -15,7 +15,17 @@ local voice_settings = {
         voice_tag_concept = VOQueryConstants.concepts.on_demand_com_wheel,
         voice_tag_id = VOQueryConstants.trigger_ids.com_wheel_vo_no,
     }, 
-    [VOICE_SETTING.dog_hating] = {}
+    [VOICE_SETTING.dog_hating] = {},
+    [VOICE_SETTING.thank_you] = {
+        voice_tag_concept = VOQueryConstants.concepts.on_demand_com_wheel,
+        voice_tag_id = VOQueryConstants.trigger_ids.com_wheel_vo_thank_you,
+    },
+    [VOICE_SETTING.battery] = {
+        voice_tag_concept = VOQueryConstants.concepts.on_demand_vo_tag_item,
+        voice_tag_id = VOQueryConstants.trigger_ids.smart_tag_vo_pickup_battery,
+    },
+    [VOICE_SETTING.im_falling] = {},
+    [VOICE_SETTING.psyker_scream] = {},
 }
 
 return {

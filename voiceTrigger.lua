@@ -141,8 +141,4 @@ mod.on_unload = function()
     HudElementSmartTagging_instance = nil
 end
 
---Vo.player_ledge_hanging_event(player_unit)
---Vo.play_combat_ability_event(player_unit, "ability_buff_stance") -> scriers
---Vo.play_combat_ability_event(player_unit, "ability_biomancer_high")
-
 init_keybind_functions()
